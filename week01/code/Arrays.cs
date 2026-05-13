@@ -8,12 +8,18 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Step 1: Create an array with the required length.
+        double[] result = new double[length];
 
-        return []; // replace this return statement with your own
+        // Step 2: Use a loop to fill the array with multiples of the number.
+        // The first value should be number * 1, then number * 2, etc.
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1);
+        }
+
+        // Step 3: Return the completed array.
+        return result;
     }
 
     /// <summary>
@@ -25,9 +31,26 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Step 1: Calculate the index where the rotation should start.
+        int startIndex = data.Count - amount;
+
+        // Step 2: Create a temporary list to store the rotated elements.
+        List<int> temp = new List<int>();
+
+        // Step 3: Add the elements from the start index to the end of the list.
+        for (int i = startIndex; i < data.Count; i++)
+        {
+            temp.Add(data[i]);
+        }
+
+        // Step 4: Add the elements from the beginning of the list to the start index.
+        for (int i = 0; i < startIndex; i++)
+        {
+            temp.Add(data[i]);
+        }
+
+        // Step 5: Clear the original list and add all elements from the temporary list.
+        data.Clear();
+        data.AddRange(temp);
     }
 }
